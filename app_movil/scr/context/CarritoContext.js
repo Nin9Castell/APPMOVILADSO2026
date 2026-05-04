@@ -19,7 +19,7 @@ export function CarritoProvider({ children }) {
     const { isAuthenticated, isLoadingSession } = useAuth();
 
     // Estado del carrito
-    const [carrito, setItems] = useState([]); //lista de productos en el carrito
+    const [items, setItems] = useState([]); //lista de productos en el carrito
     const [totalItems, setTotalItems] = useState([0]); // suma de cantidades
     const [total, setTotal] = useState(0); // precio total
     const [loading, setLoading] = useState(true); // true mientras carga el carrito
@@ -104,6 +104,17 @@ export function CarritoProvider({ children }) {
     );
 
     /**
+     * Eliminar un item del carrito por su id
+     */
+
+    const eliminarItem = useCallback(
+        async (itemId) => {
+            await carritoService.removeItem({ isAuthenticated, itemId })
+        },
+        [hydrate, isAuthenticated]
+    );
+
+    /**
      * vaciar carrito
      * elimina todos los items del carrito de una vez
      */
@@ -113,5 +124,35 @@ export function CarritoProvider({ children }) {
         await hydrate();
     }, [hydrate, isAuthenticated]);
 
+    /** useMemo evita recrear el objeto en cada render innecesario */
+    const value = useMemo(
+        () => ({
+            items, //array de items normalizados
+            totalItems, // cantidad total de unidades
+            total, // precio total del carrito
+            loading, // true mientras se carga
+            refreshCarrito: hydrate, // permite forzar una recarga manual
+            agregarProducto,
+            cambiarCantidad,
+            eliminarItem,
+            vaciarCarrito,
+        }),
+        [items, totalItems, total, loading, hydrate, agregarProducto, cambiarCantidad, eliminarItem, vaciarCarrito]
+    );
 
+    return <CarritoContext.Provider value={value}>{children}</CarritoContext.Provider>;
+
+}
+/**
+ * HOOK
+ * simplifica el acceso al contexto y lanza un error descriptivo si se usa fuera del arbol de CarritoProvider
+ */
+
+export function useCarrito() {
+    const context = useContext(CarritoContext);
+    if (!context) {
+        throw new Error('useCarrito debe ser dentro de carritoProvider');
+    }
+
+    return context;
 }
