@@ -21,7 +21,7 @@ export async function desactivarUsuario(id, data) {
 
 // eliminar un usuario
 
-export async function deleteUser(id) {
+export async function deleteUsuario(id) {
     const res = await api.delete (`/admin/usuarios/${id}`);
     return res.data;
 }
