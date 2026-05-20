@@ -21,11 +21,11 @@ import {
 } from 'react-native';
 import { router } from 'expo-router'; // Navegación programática.
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { useAuth } from '@/src/context/AuthContext';
-import { useCarrito } from '@/src/context/CarritoContext';
-import pedidoService from '@/src/services/pedidoService';
+import { ThemedText } from '../components/themed-text';
+import { ThemedView } from '../components/themed-view';
+import { useAuth } from '../src/context/AuthContext';
+import { useCarrito } from '../src/context/CarritoContext';
+import pedidoService from '../src/services/pedidoService';
 
 // ── TIPOS Y HELPERS DE NAVEGACIÓN ────────────────────────────────────────────
 // Tipo del contexto del carrito (necesario para que TypeScript reconozca sus propiedades).

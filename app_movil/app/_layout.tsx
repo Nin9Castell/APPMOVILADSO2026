@@ -15,7 +15,7 @@ import 'react-native-reanimated';             // Requerido por Reanimated para f
 
 import { useColorScheme } from '../hooks/use-color-scheme'; // Hook que detecta si el dispositivo está en modo oscuro.
 import { AuthProvider } from '../src/context/AuthContext';   // Proveedor de sesión de usuario (login/logout).
-import { CarritoProvider } from '@/src/context/CarritoContext'; // Proveedor del estado global del carrito.
+import { CarritoProvider } from '../src/context/CarritoContext'; // Proveedor del estado global del carrito.
 
 // ── CONFIGURACIÓN DE EXPO ROUTER ──────────────────────────────────────────────
 // unstable_settings.anchor define la pantalla inicial al abrir la app.

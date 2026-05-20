@@ -25,13 +25,13 @@ import { ActivityIndicator, Alert, Dimensions, FlatList, Modal, Pressable, Image
 // Ionicons libera de icono vectoriales para react native
 import { Ionicons } from "@expo/vector-icons";
 //CatalogoService servicio que hace las llamadas HTTP (API) del backend para productos y categorias
-import catalogoService from "../../scr/services/catalogoService";
+import catalogoService from "../../src/services/catalogoService";
 //themedText : texto q aplica colores colores del tema del dispositivo de manera automatica claro u oscuro
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '../../components/themed-text';
 //themedView : color de fonde automatico segun el tema del dispositivo
-import { ThemedView } from '@/components/themed-View';
+import { ThemedView } from '../../components/themed-view';
 //useCarrito hook del context del carrito para agregar productos
-import { useCarrito } from '../../scr/context/CarritoContext';
+import { useCarrito } from '../../src/context/CarritoContext';
 
 /**
  * Tipo carrito CTX
@@ -77,9 +77,9 @@ export default function HomeScreen() {
      * Estado de datos
      * productos lista completa de productos traida del backend
      */
-    const [productos, Setproductos] = useState<any[]>([]);
+    const [productos, setProductos] = useState<any[]>([]);
     // categoria lista de categorias traido del backend
-    const [categoria, SetCategoria] = useState<any[]>([]);
+    const [categorias, setCategorias] = useState<any[]>([]);
 
     //Estados de UI
     //loading true mientras cargan los datos por primera vez.
@@ -87,7 +87,7 @@ export default function HomeScreen() {
     //refreshing true mientras el usuario hace pull to refresh 
     const [refreshing, setRefreshing] = useState(false);
     //error mensaje de error si falla la carga
-    const [error, setError] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     //busqueda texto de campo de busqueda filtra productos en tiempo real
     const [busqueda, setBusqueda] = useState('');
     //categoriaActiva id de la categoria seleccionada o all para ver todas
@@ -123,7 +123,7 @@ export default function HomeScreen() {
     const loadCatalogo = async ({ isRefresh = false } = {}) => {
         if (isRefresh) setRefreshing(true); //pull-to-refrsh avtiva indicador de refresco
         else setLoading(true); //activa el spinner grande
-        setError('');
+        setErrorMessage('');
         try {
             /** LLama todos los endpoints al mismo tiempo para mayor velocidad
              * getProductos con limite de 200 trae todos los productos de una vez
@@ -133,11 +133,11 @@ export default function HomeScreen() {
                 catalogoService.getCategorias(),
             ]);
             // guarda los datos solo si son arrays
-            Setproductos(Array.isArray(productosData) ? productosData : []);
-            SetCategoria(Array.isArray(categoriasData) ? categoriasData  : []);
+            setProductos(Array.isArray(productosData) ? productosData : []);
+            setCategorias(Array.isArray(categoriasData) ? categoriasData  : []);
         } catch (error: unknown) {
             const msg = (error as { message?: string })?.message;
-            setError(msg || 'No se pudo cargar el catálogo');
+            setErrorMessage(msg || 'No se pudo cargar el catálogo');
         } finally {
             //Siempre desactiva los indicadores al terminar sea exito o error
             setLoading(false);

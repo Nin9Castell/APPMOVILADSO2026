@@ -21,7 +21,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import { ThemedText } from '../../components/themed-text';
 import { ThemedView } from '../../components/themed-view'
 //cliente http axios con JWT
-import pedidoService from '../../scr/services/pedidoService';
+import pedidoService from '../../src/services/pedidoService';
 type ProductoDetalle = {
     nombre?: string;
     imagen?: string;

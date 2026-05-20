@@ -15,7 +15,7 @@ const catalogoService = {
     },
 
     //consulta productos del catalogo y acepta filtros de busqueda
-    gatProductos: async (params = {}) => {
+    getProductos: async (params = {}) => {
         const response = await apiClient.get ('/catalogo/productos', { params });
         const payload = response.data?.data || response.data || {};
         const productos = payload.productos || [];

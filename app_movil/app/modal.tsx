@@ -10,8 +10,8 @@
 import { Link } from 'expo-router';  // Componente de enlace de Expo Router.
 import { StyleSheet } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text'; // Texto que respeta el tema claro/oscuro.
-import { ThemedView } from '@/components/themed-view'; // Vista que respeta el tema claro/oscuro.
+import { ThemedText } from '../components/themed-text'; // Texto que respeta el tema claro/oscuro.
+import { ThemedView } from '../components/themed-view'; // Vista que respeta el tema claro/oscuro.
 
 // ── COMPONENTE PRINCIPAL ──────────────────────────────────────────────────────
 export default function ModalScreen() {

@@ -16,9 +16,9 @@ import { router } from "expo-router";
 //Biblioteca de iconos de react
 import { Ionicons } from '@expo/vector-icons';
 //cliente http axios con JWT
-import apiClient from '../../scr/api/apiClient';
+import apiClient from '../../src/api/apiClient';
 // autenticacion
-import { useAuth } from '../../scr/context/AuthContext';
+import { useAuth } from '../../src/context/AuthContext';
 
 
 //control de rol

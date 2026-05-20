@@ -18,7 +18,7 @@ import { Alert, Button, ScrollView, StyleSheet, Text, TextInput, View } from "re
 
 //lee los parametros de la url para obtener el id del pedido 
 import { useLocalSearchParams, useRouter } from "expo-router"; //negacion y parametros de ruta 
-import { createProduct, updateProduct } from '../../scr/services/adminService';
+import { createProduct, updateProduct } from '../../src/services/adminService';
 /**
  * tipo de producto
  * estructura del producto recibido como parametro cuando edita

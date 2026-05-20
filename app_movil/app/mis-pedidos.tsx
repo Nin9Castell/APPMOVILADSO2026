@@ -14,10 +14,10 @@ import { router } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native'; // Hook que dispara un callback al enfocar la pantalla.
 import { useCallback } from 'react';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { useAuth } from '@/src/context/AuthContext';
-import pedidoService from '@/src/services/pedidoService';
+import { ThemedText } from '../components/themed-text';
+import { ThemedView } from '../components/themed-view';
+import { useAuth } from '../src/context/AuthContext';
+import pedidoService from '../src/services/pedidoService';
 
 // ── TIPO: Pedido ──────────────────────────────────────────────────────────────
 // Solo los campos que se muestran en la lista (no incluye detalles completos).

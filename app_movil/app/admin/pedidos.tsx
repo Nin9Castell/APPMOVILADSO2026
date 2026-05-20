@@ -19,7 +19,7 @@ import { router } from "expo-router";
 //themedText : texto q aplica colores colores del tema del dispositivo de manera automatica claro u oscuro
 import { ThemedText } from '../../components/themed-text';
 //cliente http axios con JWT
-import apiClient from '../../scr/api/apiClient';
+import apiClient from '../../src/api/apiClient';
 
 /**
  * TIPOS

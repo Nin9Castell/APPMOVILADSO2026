@@ -12,9 +12,9 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import pedidoService from '@/src/services/pedidoService';
+import { ThemedText } from '../components/themed-text';
+import { ThemedView } from '../components/themed-view';
+import pedidoService from '../src/services/pedidoService';
 
 // ── TIPO: Pedido ──────────────────────────────────────────────────────────────
 // Solo los campos necesarios para la pantalla de confirmación.

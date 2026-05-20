@@ -19,8 +19,8 @@ import { ActivityIndicator, Alert, Image, Pressable, ScrollView, StyleSheet, Tex
 import { router } from "expo-router";
 // Ionicons libera de icono vectoriales para react native
 import { Ionicons } from "@expo/vector-icons";
-import { useAuth } from '../../scr/context/AuthContext';
-import { useCarrito } from "../../scr/context/CarritoContext";
+import { useAuth } from '../../src/context/AuthContext';
+import { useCarrito } from "../../src/context/CarritoContext";
 
 // carritoCtx define la forma de los datos que devuelve usecarrito
 //TypeScript necesita esto porque CarritoContext.js esta en javaScript

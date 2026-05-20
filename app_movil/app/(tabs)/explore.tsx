@@ -24,7 +24,7 @@ import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, ScrollVie
 import { router } from "expo-router";
 // Ionicons libera de icono vectoriales para react native
 import { Ionicons } from "@expo/vector-icons";
-import { useAuth } from '../../scr/context/AuthContext';
+import { useAuth } from '../../src/context/AuthContext';
 //themedText : texto q aplica colores colores del tema del dispositivo de manera automatica claro u oscuro
 import { ThemedText } from '../../components/themed-text';
 //themedView : color de fonde automatico segun el tema del dispositivo

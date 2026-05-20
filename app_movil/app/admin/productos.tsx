@@ -20,9 +20,9 @@ import { ActivityIndicator, Alert, FlatList, Image, Pressable, ScrollView, Style
 //lee los parametros de la url para obtener el id del pedido 
 import { router } from "expo-router"; //negacion y parametros de ruta 
 import { ThemedText } from '../../components/themed-text';
-import  apiClient  from '../../scr/api/apiClient';
-import { activarProducto, desactivarProducto, deleteProduct, } from '../../scr/services/adminService';
-import { useAuth } from '../../scr/context/AuthContext'
+import  apiClient  from '../../src/api/apiClient';
+import { activarProducto, desactivarProducto, deleteProduct, } from '../../src/services/adminService';
+import { useAuth } from '../../src/context/AuthContext'
 /**
  * tipo de producto
  * estructura del producto recibido tal como viene del backend
