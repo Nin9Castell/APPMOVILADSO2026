@@ -13,7 +13,7 @@ import { HapticTab } from '../../components/haptic-tab';
 //IconoSymbols componente que muestra iconos SF Symbols IOS y material de android
 import { IconSymbol } from '../../components/ui/icon-symbol';
 // colors objeto de colores del tema de app modo claro y oscuro
-import { colors } from '../../constants/theme';
+import { Colors } from '../../constants/theme';
 // useColorShema hook que dtecta si el dispositivo esta en modo claro o oscuro
 import { useColorScheme } from '../../hooks/use-color-scheme';
 
@@ -29,7 +29,7 @@ export default function TabLayout() {
             screenOptions={{
                 //tabBarActiveTintColor color del icono y texto de la pestaña activa
                 // si colorScheme es null (no detectado) usa light por defecto
-                tabBarActiveTintColor: colors[colorScheme ?? 'light'].tint,
+                tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
                 //headerShown false oculta el encabezado superior en todas las pantallas
                 headerShown: false,
                 //tabBarButton remplaza el botón estándar por HapticTab con vibración

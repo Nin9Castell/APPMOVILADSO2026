@@ -198,7 +198,7 @@ export default function HomeScreen() {
     productosFiltrados.length > 0, [productosFiltrados]);
 
     // total paginas numero total de painas segun los productos filtrados
-    const totalPAginas = useMemo (() => 
+    const totalPaginas = useMemo (() => 
     Math.ceil(productosFiltrados.length / ITEMS_POR_PAGINA), [productosFiltrados, ITEMS_POR_PAGINA]);
 
     // productos visibles subconjunto de productos de la pagina actual eje pagina 1 1-15 pagina 2 16-30 ....

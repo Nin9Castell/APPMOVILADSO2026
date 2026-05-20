@@ -18,8 +18,8 @@ import { ActivityIndicator, Image, Pressable, ScrollView, View } from "react-nat
 // lee los parametros de la url para obtener el id del pedido
 import { router, useLocalSearchParams } from "expo-router";
 //themedText : texto q aplica colores colores del tema del dispositivo de manera automatica claro u oscuro
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view'
+import { ThemedText } from '../../components/themed-text';
+import { ThemedView } from '../../components/themed-view'
 //cliente http axios con JWT
 import pedidoService from '../../scr/services/pedidoService';
 type ProductoDetalle = {

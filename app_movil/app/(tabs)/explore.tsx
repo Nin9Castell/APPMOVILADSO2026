@@ -26,9 +26,9 @@ import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from '../../scr/context/AuthContext';
 //themedText : texto q aplica colores colores del tema del dispositivo de manera automatica claro u oscuro
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '../../components/themed-text';
 //themedView : color de fonde automatico segun el tema del dispositivo
-import { ThemedView } from '@/components/themed-View';
+import { ThemedView } from '../../components/themed-view';
 
 /**
  * AuthCtx define la forma del objeto devuelto por useAuth es necesario
