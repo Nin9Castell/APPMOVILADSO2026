@@ -13,7 +13,7 @@ import { storageGetItem, storageMultiRemove, storageMultiSet, storageSetItem } f
 const authService = {
     //envia credenciales al backend y persiste token + usuario si son validos
     login: async (email, password) => {
-        const response = await apiCient.post('/auth/login', { email, password });
+        const response = await apiClient.post('/auth/login', { email, password });
         const payload = response.data?.data || response.data;
 
         if (payload?.token) {
