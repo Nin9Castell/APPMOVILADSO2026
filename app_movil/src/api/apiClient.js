@@ -35,12 +35,12 @@ apiClient.interceptors.request.use(
 );
 
 // Interceptor de respuesta
-//se ejecuta despues de recibir cda respuesta
-// repuesta 2xx se devuelven sin modificar
-// respuesta con error 4xx o 5xx /red extrae el mensaje del backend 
-//si existen si no usa el mensaje de axios o un mensaje generico
+//se ejecuta despues de recibir cada respuesta
+// respuesta 2xx se devuelven sin modificar
+// respuesta con error 4xx o 5xx / red extrae el mensaje del backend 
+// si existen, si no usa el mensaje de axios o un mensaje generico
 
-appClient.interceptors.response.use(
+apiClient.interceptors.response.use(
     (response) => response,
     (error) => {
         const backendMessage = error.response?.data?.message; //mensaje del server

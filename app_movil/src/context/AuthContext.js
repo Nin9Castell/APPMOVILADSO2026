@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     // JWT recibido del backend; su presencia indica sesion activa
     const [token, setToken] = useState(null);
     // true mientras se lee asyncStorage al arrancar; evita redirigir antes de tiempo
-    const [isLoading, setLoading] = useState(true);
+    const [isLoadingSession, setIsLoadingSession] = useState(true);
 
     /**
      * restoreSesion 

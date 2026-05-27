@@ -3,7 +3,7 @@
  * activa desactiva y eliminar desde el panel del admin
  */
 
-import api from '../api';
+import api from '../api/apiClient';
 
 // activa un usuario
 

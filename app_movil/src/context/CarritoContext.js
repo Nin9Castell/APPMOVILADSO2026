@@ -8,19 +8,19 @@
  * Expone items totales y las acciones : agregar cambiar cantidad eliminar y vaciar
  */
 
-import { children, createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useAuth } from './AuthContext';
 import carritoService from '../services/carritoService';
 
 const CarritoContext = createContext(null);
 
 export function CarritoProvider({ children }) {
-    // lee isAuthenticated e isloading del contexto de auteticacion
+    // lee isAuthenticated e isLoadingSession del contexto de autenticacion
     const { isAuthenticated, isLoadingSession } = useAuth();
 
     // Estado del carrito
-    const [items, setItems] = useState([]); //lista de productos en el carrito
-    const [totalItems, setTotalItems] = useState([0]); // suma de cantidades
+    const [items, setItems] = useState([]); // lista de productos en el carrito
+    const [totalItems, setTotalItems] = useState(0); // suma de cantidades
     const [total, setTotal] = useState(0); // precio total
     const [loading, setLoading] = useState(true); // true mientras carga el carrito
 
@@ -60,9 +60,9 @@ export function CarritoProvider({ children }) {
         try {
             //getCarrito decide internamente si consulta el backend o asyncStorage
             const snapshot = await carritoService.getCarrito(isAuthenticated);
-            setItems(snapshot.setItems);
-            setTotalItems(snapshot.totalItems);
-            setTotal(snapshot.total);
+            setItems(snapshot.items ?? []);
+            setTotalItems(snapshot.totalItems ?? 0);
+            setTotal(snapshot.total ?? 0);
         } catch {
             // si falla muestra carrito vacio sin productos
             setItems([]);

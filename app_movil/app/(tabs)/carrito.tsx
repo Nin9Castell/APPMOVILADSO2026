@@ -69,11 +69,11 @@ export default function CarritoScreen() {
 
     if (loading) {
         return (
-            <view style={styles.centered}>
+            <View style={styles.centered}>
                 {/* espiner circula color indigo */}
                 <ActivityIndicator size="large" color="#6366f1" />
-                <text style={styles.loadingText}>Cargando....</text>
-            </view>
+                <Text style={styles.loadingText}>Cargando....</Text>
+            </View>
         );
     }
 
@@ -89,7 +89,7 @@ export default function CarritoScreen() {
                     //boton cancelar cierra el dialogo sin hacer nada 
                     { text: 'Cancelar', style: 'cancel'},
                     // boton iniciar sesion lleva a pestaña cuenta explore.tsx
-                    { text: 'Iniciar Sesion', onPress: () => routerReplace('/tabs/explore') },
+                    { text: 'Iniciar Sesion', onPress: () => routerReplace('/(tabs)/explore') },
                 ]
             );
             return; //sale de la funcion

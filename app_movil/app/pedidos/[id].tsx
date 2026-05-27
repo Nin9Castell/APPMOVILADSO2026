@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react';
 //flatlist lista optimizada con virtializacion para mostrar grandes cantidades de datos
 //modal moestrar detalles de contenido en ventana emergente
 
-import { ActivityIndicator, Image, Pressable, ScrollView, View } from "react-native";
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
 
 // lee los parametros de la url para obtener el id del pedido
 import { router, useLocalSearchParams } from "expo-router";
@@ -107,9 +107,9 @@ export default function PedidoDetalleScreen() {
     // efecto de carga de pedido
     // se ejecuta cuando el id cambia en la ruta
     useEffect(() =>{
-        if (pedidoId) {
+        if (!pedidoId) {
             setLoading(false);
-            setErrorMessage('Pedido invalido')
+            setErrorMessage('Pedido invalido');
             return;
         }
 

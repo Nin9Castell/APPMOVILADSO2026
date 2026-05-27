@@ -6,13 +6,13 @@
  */
 
 import apiClient from '../api/apiClient';
-import { STORAGE_KEY } from '../utils/constants';
+import { STORAGE_KEYS } from '../utils/constants';
 import { storageGetItem, storageSetItem } from '../utils/storage';
 
 // lee el carrito guardado localmente. si no existe o esta corrupto devuelve [].
 
 async function readLocalcart() {
-    const raw = await storageGetItem(STORAGE_KEY.carritoLocal);
+    const raw = await storageGetItem(STORAGE_KEYS.carritoLocal);
     if (!raw) {
         return [];
     }
@@ -128,7 +128,7 @@ const carritoService = {
     },
 
     // vacia por completo el carrito local o remoto
-    cleancarrito: async (isAuthenticated) => {
+    clearCarrito: async (isAuthenticated) => {
         if (isAuthenticated) {
             await apiClient.delete(`/cliente/carrito`);
             return;
@@ -139,7 +139,7 @@ const carritoService = {
 
     //migrar todos los items guardados localmente al carrito del backend despues que el usuario inicia sesion
 
-    mergelocalToBackend: async () => {
+    mergeLocalToBackend: async () => {
         const localItems = await readLocalcart();
         if (localItems.length === 0) {
             return;
