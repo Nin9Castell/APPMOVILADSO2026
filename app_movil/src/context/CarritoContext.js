@@ -71,7 +71,7 @@ export function CarritoProvider({ children }) {
         } finally {
             setLoading(false);
         }
-    }, {isAuthenticated, isLoadingSession});
+    }, [isAuthenticated, isLoadingSession]);
 
     // se ejecuta vada vez que cambia isAuthenticated o isLoadingSession
     useEffect(() => {

@@ -17,7 +17,7 @@ async function safeCall(fn, fallbackValue) {
 // lee una clave del almacenamiento
 // primero intenta por AsyncStorage y si falla usa el respaldo de memoria
 
-export async function storageGet(key) {
+export async function storageGetItem(key) {
     const value = await safeCall(() => AsyncStorage.getItem(key), null);
     if (value !== null) {
         return value;
@@ -34,6 +34,16 @@ export async function storageSetItem(key, value) {
     }, false);
     if (!ok) {
         memoryStore.set(key, value);
+    }
+}
+
+export async function storageMultiSet(items) {
+    const ok = await safeCall(async () => {
+        await AsyncStorage.multiSet(items);
+        return true;
+    }, false);
+    if (!ok) {
+        items.forEach(([key, value]) => memoryStore.set(key, value));
     }
 }
 

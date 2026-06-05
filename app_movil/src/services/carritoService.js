@@ -11,7 +11,7 @@ import { storageGetItem, storageSetItem } from '../utils/storage';
 
 // lee el carrito guardado localmente. si no existe o esta corrupto devuelve [].
 
-async function readLocalcart() {
+async function readLocalCart() {
     const raw = await storageGetItem(STORAGE_KEYS.carritoLocal);
     if (!raw) {
         return [];
@@ -67,7 +67,7 @@ const carritoService = {
             return summarize(items);
         }
 
-        const localItems = await readLocalcart();
+        const localItems = await readLocalCart();
         return summarize(localItems);
     },
 
@@ -81,7 +81,7 @@ const carritoService = {
             return;
         }
 
-        const localItems = await readLocalcart();
+        const localItems = await readLocalCart();
         const existing = localItems.find((item) => Number(item.productoId) === Number(producto.id));
 
         if (existing) {
@@ -140,7 +140,7 @@ const carritoService = {
     //migrar todos los items guardados localmente al carrito del backend despues que el usuario inicia sesion
 
     mergeLocalToBackend: async () => {
-        const localItems = await readLocalcart();
+        const localItems = await readLocalCart();
         if (localItems.length === 0) {
             return;
         }
